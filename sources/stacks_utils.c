@@ -6,23 +6,29 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:27:11 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/05 18:24:12 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:18:28 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	free_stacks(t_stack **stack)
+void	init_stack(t_stack *stack)
 {
-	t_stack	*tmp;
+	stack->top = NULL;
+	stack->size = 0;
+}
 
-	while (*stack)
+void	free_stack(t_stack *stack)
+{
+	t_node *tmp;
+
+	while (stack->top)
 	{
-		tmp = *stack;
-		*stack = (*stack)->next;
-		free(tmp);
+		tmp = stack->top->next;
+		free(stack->top);
+		stack->top = tmp;
 	}
-	*stack = NULL;
+	stack->size = 0;
 }
 
 void    free_split(char **split)

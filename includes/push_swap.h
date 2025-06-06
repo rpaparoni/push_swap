@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:26:45 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/05 18:24:22 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/06 16:18:24 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ int		main(int  argc, char	*argv[]);
 int		is_valid_number(char *str);
 int		is_int_range(char *str);
 int		is_duplicate(t_stack *a, int nb);
-void	parse_args(t_stack *a, int argc, char **argv);
+void	parse_args(t_stack *stack_a, int argc, char **argv);
 void	push_stack(t_stack *a, int nb);
 void    free_split(char **split);
-void	free_stacks(t_stack **stack);
+void	free_stack(t_stack *stack);
+void	init_stack(t_stack *stack);
 long    ft_atol(const char *str);
 
 #endif
