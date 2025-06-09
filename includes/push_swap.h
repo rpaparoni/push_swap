@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:26:45 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/09 13:11:09 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/09 17:31:10 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,26 @@ void	init_stack(t_stack *stack);
 void	assign_index(t_stack *stack);
 void	sort_array(int *arr, int size);
 void	assign_indices_to_stack(t_stack *stack, int *sorted);
+void	sort_two(t_stack *stack_a);
+void	sort_three(t_stack *stack_a);
+void	sort_four(t_stack *stack_a, t_stack *stack_b);
+void	sort_five(t_stack *stack_a, t_stack *stack_b);
+void	sort_controller(t_stack *stack_a, t_stack *stack_b);
+void	move_index_to_top(t_stack *stack_a, int index);
+void	k_sort(t_stack *stack_a, t_stack *stack_b);
 long    ft_atol(const char *str);
+
+//moves
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
+void	ra(t_stack *stack_a);
+void	rb(t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack_a);
+void	rrb(t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 #endif

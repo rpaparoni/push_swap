@@ -6,26 +6,25 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:26:57 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/09 13:15:03 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/09 17:34:17 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	print_stack(t_stack *stack, char *name)
-{
-	t_node	*current;
+// void	print_stack(t_stack *stack, char *name)
+// {
+// 	t_node	*current;
 
-	ft_printf("Stack %s:\n", name);
-	current = stack->top;
-	while (current)
-	{
-		ft_printf("[VAL: %d | IDX: %d]\n", current->value, current->index);
-		current = current->next;
-	}
-	ft_printf("-----\n");
-}
-
+// 	ft_printf("Stack %s:\n", name);
+// 	current = stack->top;
+// 	while (current)
+// 	{
+// 		ft_printf("[VAL: %d | IDX: %d]\n", current->value, current->index);
+// 		current = current->next;
+// 	}
+// 	ft_printf("-----\n");
+// }
 
 int	main(int argc, char *argv[])
 {
@@ -38,8 +37,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	parse_args(&stack_a, argc, argv);
 	assign_index(&stack_a);
-	//pus_suas
-	print_stack(&stack_a, "A");
+	sort_controller(&stack_a, &stack_b);
+	// print_stack(&stack_a, "A");
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
