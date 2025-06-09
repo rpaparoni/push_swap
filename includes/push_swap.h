@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:26:45 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/06 16:18:24 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/09 13:11:09 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	push_stack(t_stack *a, int nb);
 void    free_split(char **split);
 void	free_stack(t_stack *stack);
 void	init_stack(t_stack *stack);
+void	assign_index(t_stack *stack);
+void	sort_array(int *arr, int size);
+void	assign_indices_to_stack(t_stack *stack, int *sorted);
 long    ft_atol(const char *str);
 
 #endif
