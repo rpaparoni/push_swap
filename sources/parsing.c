@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:07:23 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/06 17:33:30 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/11 13:04:47 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push_stack(t_stack *a, int nb)
 	
 	new = malloc(sizeof(t_node));
 	if (!new)
-		ft_putstr_fd("Error malloc", 2);
+		ft_putstr_fd("Error malloc\n", 2);
 	new->value = nb;
 	new->index = 0;
 	new->next = NULL;
@@ -74,7 +74,7 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-void	parse_args(t_stack *a, int argc, char **argv)
+void	parse_args(t_stack *stack_a, int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -86,16 +86,16 @@ void	parse_args(t_stack *a, int argc, char **argv)
 	{
 		nums = ft_split(argv[i], ' ');
 		if (!nums || !nums[0])
-			ft_putstr_fd("Error split", 2);
+			ft_error(stack_a, nums);
 		j = 0;
 		while (nums[j])
 		{
 			if (!is_valid_number(nums[j]) || !is_int_range(nums[j]))
-				ft_putstr_fd("Error parse", 2);
+				ft_error(stack_a, nums);
 			value = ft_atol(nums[j]);
-			if (is_duplicate(a, value))
-				ft_putstr_fd("Error parse2", 2);
-			push_stack(a, value);
+			if (is_duplicate(stack_a, value))
+			ft_error(stack_a, nums);
+			push_stack(stack_a, value);
 			j++;
 		}
 		free_split(nums);

@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   k_sort.c                                           :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/09 17:15:25 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/09 17:42:10 by rpaparon         ###   ########.fr       */
+/*   Created: 2025/06/11 12:45:39 by rpaparon          #+#    #+#             */
+/*   Updated: 2025/06/11 12:47:44 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	k_sort(t_stack *stack_a, t_stack *stack_b)
+void	ft_error(t_stack *stack_a, char **nums)
 {
-    (void)stack_a;
-    (void)stack_b;
-    ft_printf("\nestas usando ksort");
+	if (nums)
+		free_split(nums);
+	if (stack_a)
+		free_stack(stack_a);
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
 }

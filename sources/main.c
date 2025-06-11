@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:26:57 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/09 17:34:17 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/11 13:25:28 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	parse_args(&stack_a, argc, argv);
 	assign_index(&stack_a);
+	// print_stack(&stack_a, "A antes de ordenar");
 	sort_controller(&stack_a, &stack_b);
-	// print_stack(&stack_a, "A");
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

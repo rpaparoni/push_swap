@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:08:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/09 17:17:54 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/11 13:25:54 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	sort_controller(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->size == 2)
+	if (stack_a->size == 1)
+		return ;
+	else if (stack_a->size == 2)
 		sort_two(stack_a);
 	else if (stack_a->size == 3)
 		sort_three(stack_a);
@@ -58,20 +60,19 @@ void	sort_three(t_stack *stack_a)
 
 void	sort_four(t_stack *stack_a, t_stack *stack_b)
 {
-	move_index_to_top(stack_a, 0);
-	pb(stack_a, stack_b);
+	push_min_to_b(stack_a, stack_b, 1);
 	sort_three(stack_a);
-	pa(stack_a, stack_b);
+	if (stack_b->top)
+		pa(stack_a, stack_b);
 }
 
 void	sort_five(t_stack *stack_a, t_stack *stack_b)
 {
-	move_index_to_top(stack_a, 0);
-	pb(stack_a, stack_b);
-	move_index_to_top(stack_a, 1);
-	pb(stack_a, stack_b);
+	push_min_to_b(stack_a, stack_b, 2);
 	sort_three(stack_a);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	if (stack_b->top)
+		pa(stack_a, stack_b);
+	if (stack_b->top)
+		pa(stack_a, stack_b);
 }
 

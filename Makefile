@@ -6,7 +6,7 @@
 #    By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/02 15:20:54 by rpaparon          #+#    #+#              #
-#    Updated: 2025/06/09 17:28:34 by rpaparon         ###   ########.fr        #
+#    Updated: 2025/06/11 13:09:32 by rpaparon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ NAME = push_swap
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SOURCES = sources/main.c sources/parsing.c sources/stacks_utils.c sources/index.c \
+SOURCES = sources/main.c sources/parsing.c sources/utils_stacks.c sources/index.c \
 sources/k_sort.c sources/moves_a.c sources/moves_b.c sources/moves_a_b.c \
-sources/small.c
+sources/small.c sources/utils.c sources/utils_index.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
