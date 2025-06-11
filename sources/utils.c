@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:45:39 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 16:44:27 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/11 17:09:13 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,31 @@ void	ft_error(t_stack *stack_a, char **nums)
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
+
+int	count_stack(t_stack *s)
+{
+	t_node	*tmp = s->top;
+	int		i = 0;
+
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
+int	get_max_index(t_stack *s)
+{
+	t_node	*tmp = s->top;
+	int		max = 0;
+
+	while (tmp)
+	{
+		if (tmp->index > max)
+			max = tmp->index;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+

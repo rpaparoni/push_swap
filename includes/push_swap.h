@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:26:45 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 13:41:20 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/11 17:57:14 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int		main(int  argc, char	*argv[]);
 int		is_valid_number(char *str);
 int		is_int_range(char *str);
 int		is_duplicate(t_stack *a, int nb);
+int		count_stack(t_stack *s);
+int		get_max_index(t_stack *s);
 void	parse_args(t_stack *stack_a, int argc, char **argv);
 void	push_stack(t_stack *a, int nb);
 void    free_split(char **split);
@@ -68,7 +70,6 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 //ksort
 int		ft_sqrt(int n);
 void	k_sort(t_stack *a, t_stack *b);
-void	ksort_push_to_b(t_stack *a, t_stack *b, int range);
-void	ksort_push_back_to_a(t_stack *a, t_stack *b);
+int		find_next_in_range(t_stack *a, int max);
 
 #endif
