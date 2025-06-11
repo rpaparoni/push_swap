@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:26:45 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 12:59:07 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/11 13:41:20 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,11 @@ void	rr(t_stack *stack_a, t_stack *stack_b);
 void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
+
+//ksort
+int		ft_sqrt(int n);
+void	k_sort(t_stack *a, t_stack *b);
+void	ksort_push_to_b(t_stack *a, t_stack *b, int range);
+void	ksort_push_back_to_a(t_stack *a, t_stack *b);
 
 #endif
