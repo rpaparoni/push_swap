@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:59:39 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 13:14:42 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:49:07 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ void	push_min_to_b(t_stack *a, t_stack *b, int count)
 		i++;
 	}
 }
-

@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 13:01:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/09 13:17:07 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:33:59 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	assign_indices_to_stack(t_stack *stack, int *sorted)
 			if (current->value == sorted[i])
 			{
 				current->index = i;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -64,7 +64,7 @@ void	assign_index(t_stack *stack)
 
 	sorted = malloc(sizeof(int) * stack->size);
 	if (!sorted)
-	ft_putstr_fd("Error index", 2);
+		ft_putstr_fd("Error index", 2);
 	current = stack->top;
 	i = 0;
 	while (current)
@@ -76,4 +76,3 @@ void	assign_index(t_stack *stack)
 	assign_indices_to_stack(stack, sorted);
 	free(sorted);
 }
-

@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:27:11 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 13:09:39 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:32:53 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_stack(t_stack *stack)
 
 void	free_stack(t_stack *stack)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	while (stack->top)
 	{
@@ -31,7 +31,7 @@ void	free_stack(t_stack *stack)
 	stack->size = 0;
 }
 
-void    free_split(char **split)
+void	free_split(char **split)
 {
 	int	i;
 
@@ -44,7 +44,7 @@ void    free_split(char **split)
 	free(split);
 }
 
-long    ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	int		i;
 	int		sign;
@@ -53,7 +53,6 @@ long    ft_atol(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '+' || str[i] == '-')

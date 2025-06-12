@@ -6,70 +6,76 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 17:15:25 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 17:53:54 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:17:59 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-// Encuentra la posición del primer nodo en a con index <= max
 int	find_next_in_range(t_stack *a, int max)
 {
-	int		pos = 0;
-	t_node	*tmp = a->top;
+	int		pos;
+	t_node	*tmp;
 
+	pos = 0;
+	tmp = a->top;
 	while (tmp)
 	{
 		if (tmp->index <= max)
-			return pos;
+			return (pos);
 		pos++;
 		tmp = tmp->next;
 	}
-	return -1; // no hay elementos en rango
+	return (-1);
 }
 
-void	k_sort(t_stack *a, t_stack *b)
+static void	rotate_and_push(t_stack *a, t_stack *b, int *i)
 {
-	int	chunk_size = (a->size <= 100) ? 15 : 30;
-	int	i = 0;
+	if (a->top->index <= *i)
+	{
+		pb(a, b);
+		rb(b);
+		(*i)++;
+	}
+	else
+		pb(a, b);
+}
 
+static void	move_chunk_to_b(t_stack *a, t_stack *b, int chunk_size)
+{
+	int		i;
+	int		pos;
+
+	i = 0;
 	while (a->size > 0)
 	{
-		int	pos = find_next_in_range(a, i + chunk_size);
-
+		pos = find_next_in_range(a, i + chunk_size);
 		if (pos == -1)
 		{
 			i += chunk_size;
-			continue;
+			continue ;
 		}
-
-		// mueve el elemento a top
 		if (pos <= a->size / 2)
 			while (pos-- > 0)
 				ra(a);
 		else
 			while (pos++ < a->size)
 				rra(a);
-
-		// si es el más bajo, rb para dejarlo al fondo
-		if (a->top->index <= i)
-		{
-			pb(a, b);
-			rb(b);
-			i++;
-		}
-		else
-		{
-			pb(a, b);
-		}
+		rotate_and_push(a, b, &i);
 	}
+}
 
-	// devolver desde b a a
+static void	push_back_to_a(t_stack *a, t_stack *b)
+{
+	int		max;
+	int		pos;
+	t_node	*tmp;
+
 	while (b->size > 0)
 	{
-		int	max = get_max_index(b);
-		int	pos = 0;
-		t_node *tmp = b->top;
+		max = get_max_index(b);
+		pos = 0;
+		tmp = b->top;
 		while (tmp && tmp->index != max)
 		{
 			pos++;
@@ -85,4 +91,14 @@ void	k_sort(t_stack *a, t_stack *b)
 	}
 }
 
+void	k_sort(t_stack *a, t_stack *b)
+{
+	int	chunk_size;
 
+	if (a->size <= 100)
+		chunk_size = 15;
+	else
+		chunk_size = 30;
+	move_chunk_to_b(a, b, chunk_size);
+	push_back_to_a(a, b);
+}

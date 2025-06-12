@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:14:09 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/03/03 20:17:04 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:57:48 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,3 @@ char	*get_next_line(int fd)
 		return (free(stash), stash = NULL, line);
 	return (line);
 }
-

@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:45:39 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 17:09:13 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:56:52 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ void	ft_error(t_stack *stack_a, char **nums)
 
 int	count_stack(t_stack *s)
 {
-	t_node	*tmp = s->top;
-	int		i = 0;
+	t_node	*tmp;
+	int		i;
 
+	tmp = s->top;
+	i = 0;
 	while (tmp)
 	{
 		i++;
@@ -47,9 +49,11 @@ int	count_stack(t_stack *s)
 
 int	get_max_index(t_stack *s)
 {
-	t_node	*tmp = s->top;
-	int		max = 0;
+	t_node	*tmp;
+	int		max;
 
+	tmp = s->top;
+	max = 0;
 	while (tmp)
 	{
 		if (tmp->index > max)
@@ -59,3 +63,25 @@ int	get_max_index(t_stack *s)
 	return (max);
 }
 
+void	sort_three_cases(t_stack *a, t_node *n1, t_node *n2, t_node *n3)
+{
+	if (n1->index > n2->index && n2->index < n3->index && n1->index < n3->index)
+		sa(a);
+	else if (n1->index > n2->index && n2->index > n3->index)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (n1->index > n2->index && n2->index < n3->index
+		&& n1->index > n3->index)
+		ra(a);
+	else if (n1->index < n2->index && n2->index > n3->index
+		&& n1->index < n3->index)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (n1->index < n2->index && n2->index > n3->index
+		&& n1->index > n3->index)
+		rra(a);
+}

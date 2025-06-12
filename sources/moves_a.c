@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 16:54:51 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/09 17:37:56 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:38:53 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*tmp;
 
-	if (!stack_b || stack_b->top)
+	if (!stack_b || !stack_b->top)
 		return ;
 	tmp = stack_b->top;
 	stack_b->top = stack_b->top->next;
 	tmp->next = stack_a->top;
 	stack_a->top = tmp;
-	stack_a->size++;
 	stack_b->size--;
+	stack_a->size++;
 	ft_printf("pa\n");
 }
 
@@ -52,7 +52,6 @@ void	ra(t_stack *stack_a)
 	first = stack_a->top;
 	stack_a->top = first->next;
 	first->next = NULL;
-
 	last = stack_a->top;
 	while (last->next)
 		last = last->next;

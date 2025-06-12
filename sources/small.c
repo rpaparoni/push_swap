@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:08:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 13:25:54 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:44:09 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,16 @@ void	sort_two(t_stack *stack_a)
 		sa(stack_a);
 }
 
-void	sort_three(t_stack *stack_a)
+void	sort_three(t_stack *a)
 {
-	t_node	*n1 = stack_a->top;
-	t_node	*n2 = n1->next;
-	t_node	*n3 = n2->next;
+	t_node	*n1;
+	t_node	*n2;
+	t_node	*n3;
 
-	if (n1->index > n2->index && n2->index < n3->index && n1->index < n3->index)
-		sa(stack_a);
-	else if (n1->index > n2->index && n2->index > n3->index)
-	{
-		sa(stack_a);
-		rra(stack_a);
-	}
-	else if (n1->index > n2->index && n2->index < n3->index && n1->index > n3->index)
-		ra(stack_a);
-	else if (n1->index < n2->index && n2->index > n3->index && n1->index < n3->index)
-	{
-		sa(stack_a);
-		ra(stack_a);
-	}
-	else if (n1->index < n2->index && n2->index > n3->index && n1->index > n3->index)
-		rra(stack_a);
+	n1 = a->top;
+	n2 = n1->next;
+	n3 = n2->next;
+	sort_three_cases(a, n1, n2, n3);
 }
 
 void	sort_four(t_stack *stack_a, t_stack *stack_b)
@@ -75,4 +63,3 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 	if (stack_b->top)
 		pa(stack_a, stack_b);
 }
-

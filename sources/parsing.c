@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:07:23 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/11 13:04:47 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 03:33:49 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	push_stack(t_stack *a, int nb)
 {
-	t_node *new;
-	t_node *last;
-	
+	t_node	*new;
+	t_node	*last;
+
 	new = malloc(sizeof(t_node));
 	if (!new)
 		ft_putstr_fd("Error malloc\n", 2);
@@ -76,8 +76,8 @@ int	is_valid_number(char *str)
 
 void	parse_args(t_stack *stack_a, int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**nums;
 	long	value;
 
@@ -94,7 +94,7 @@ void	parse_args(t_stack *stack_a, int argc, char **argv)
 				ft_error(stack_a, nums);
 			value = ft_atol(nums[j]);
 			if (is_duplicate(stack_a, value))
-			ft_error(stack_a, nums);
+				ft_error(stack_a, nums);
 			push_stack(stack_a, value);
 			j++;
 		}
