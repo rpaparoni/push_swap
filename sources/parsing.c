@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:07:23 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/12 03:33:49 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:43:47 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push_stack(t_stack *a, int nb)
 
 	new = malloc(sizeof(t_node));
 	if (!new)
-		ft_putstr_fd("Error malloc\n", 2);
+		ft_putstr_fd("Error\n", 2);
 	new->value = nb;
 	new->index = 0;
 	new->next = NULL;
