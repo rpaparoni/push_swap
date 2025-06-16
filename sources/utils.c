@@ -6,7 +6,7 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:45:39 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/12 03:56:52 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:50:30 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,22 @@ int	ft_sqrt(int n)
 	return (i - 1);
 }
 
+int	is_sorted(t_stack *stack)
+{
+	t_node	*current;
+
+	if (!stack || !stack->top)
+		return (1);
+	current = stack->top;
+	while (current->next)
+	{
+		if (current->index > current->next->index)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
 void	ft_error(t_stack *stack_a, char **nums)
 {
 	if (nums)
@@ -30,21 +46,6 @@ void	ft_error(t_stack *stack_a, char **nums)
 		free_stack(stack_a);
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
-}
-
-int	count_stack(t_stack *s)
-{
-	t_node	*tmp;
-	int		i;
-
-	tmp = s->top;
-	i = 0;
-	while (tmp)
-	{
-		i++;
-		tmp = tmp->next;
-	}
-	return (i);
 }
 
 int	get_max_index(t_stack *s)
@@ -61,27 +62,4 @@ int	get_max_index(t_stack *s)
 		tmp = tmp->next;
 	}
 	return (max);
-}
-
-void	sort_three_cases(t_stack *a, t_node *n1, t_node *n2, t_node *n3)
-{
-	if (n1->index > n2->index && n2->index < n3->index && n1->index < n3->index)
-		sa(a);
-	else if (n1->index > n2->index && n2->index > n3->index)
-	{
-		sa(a);
-		rra(a);
-	}
-	else if (n1->index > n2->index && n2->index < n3->index
-		&& n1->index > n3->index)
-		ra(a);
-	else if (n1->index < n2->index && n2->index > n3->index
-		&& n1->index < n3->index)
-	{
-		sa(a);
-		ra(a);
-	}
-	else if (n1->index < n2->index && n2->index > n3->index
-		&& n1->index > n3->index)
-		rra(a);
 }

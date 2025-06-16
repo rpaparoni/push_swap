@@ -6,27 +6,11 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 15:08:37 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/12 03:44:09 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:53:31 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
-
-void	sort_controller(t_stack *stack_a, t_stack *stack_b)
-{
-	if (stack_a->size == 1)
-		return ;
-	else if (stack_a->size == 2)
-		sort_two(stack_a);
-	else if (stack_a->size == 3)
-		sort_three(stack_a);
-	else if (stack_a->size == 4)
-		sort_four(stack_a, stack_b);
-	else if (stack_a->size == 5)
-		sort_five(stack_a, stack_b);
-	else
-		k_sort(stack_a, stack_b);
-}
 
 void	sort_two(t_stack *stack_a)
 {
@@ -44,6 +28,31 @@ void	sort_three(t_stack *a)
 	n2 = n1->next;
 	n3 = n2->next;
 	sort_three_cases(a, n1, n2, n3);
+}
+
+void	sort_three_cases(t_stack *a, t_node *n1, t_node *n2, t_node *n3)
+{
+	if (n1->index > n2->index && n2->index < n3->index
+		&& n1->index < n3->index)
+		sa(a);
+	else if (n1->index > n2->index
+		&& n2->index > n3->index)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (n1->index > n2->index && n2->index < n3->index
+		&& n1->index > n3->index)
+		ra(a);
+	else if (n1->index < n2->index && n2->index > n3->index
+		&& n1->index < n3->index)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (n1->index < n2->index && n2->index > n3->index
+		&& n1->index > n3->index)
+		rra(a);
 }
 
 void	sort_four(t_stack *stack_a, t_stack *stack_b)

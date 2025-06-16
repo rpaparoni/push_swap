@@ -6,11 +6,26 @@
 /*   By: rpaparon <rpaparon@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 12:59:39 by rpaparon          #+#    #+#             */
-/*   Updated: 2025/06/12 03:49:07 by rpaparon         ###   ########.fr       */
+/*   Updated: 2025/06/12 16:56:14 by rpaparon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
+
+int	count_stack(t_stack *s)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = s->top;
+	i = 0;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}
 
 void	move_index_to_top(t_stack *a, int index)
 {
